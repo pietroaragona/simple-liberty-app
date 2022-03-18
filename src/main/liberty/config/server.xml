@@ -20,4 +20,22 @@
 
     <!-- Default SSL configuration enables trust for default certificates from the Java runtime -->
     <ssl id="defaultSSLConfig" trustDefaultCerts="true" />
+
+
+
+    <library id="driver.library">
+        <fileset dir="${env.ORACLE_DRIVER_LOCATION}" includes="*.jar" />
+    </library>
+    <jdbcDriver id="driver" libraryRef="driver.library">
+    </jdbcDriver>
+
+    <dataSource id="oracledatasource" jdbcDriverRef="driver"
+                jndiName="jdbc/data-source" transactional="false"
+                type="javax.sql.DataSource">
+        <properties.oracle
+                URL="${env.ORACLE_CONN_URL}"
+                user="${env.ORACLE_CONN_USER}"
+                password="${env.ORACLE_CONN_PSW}" />
+    </dataSource>
+
 </server>
