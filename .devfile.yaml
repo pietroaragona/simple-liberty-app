@@ -62,11 +62,11 @@ commands:
         isDefault: true
 
 
-  - id: composite-initial-setup
-    composite:
-      commands:
-        - setup-environment
+  # - id: composite-initial-setup
+  #   composite:
+  #     commands:
+  #       - setup-environment
 
 events:
   postStart:
-    - composite-initial-setup
+    - setup-environment
